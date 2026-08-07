@@ -1,16 +1,16 @@
 
 
-abstract class Comp {
-    abstract void Code();
+interface Comp {
+    void Code();
 }
 
-class Laptop extends Comp {
+class Laptop implements Comp {
     public void Code() {
         System.out.println("This is a working code");
     }
 }
 
-class Desktop extends Comp {
+class Desktop implements Comp {
     public void Code() {
         System.out.println("This is faster working code");
     }
