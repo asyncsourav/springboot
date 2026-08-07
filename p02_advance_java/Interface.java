@@ -1,4 +1,6 @@
 
+// * all methods inside an Abstract class is an abstract fucntion
+// * then that class could also be defined as interface 
 
 interface Random {
     void Show();
