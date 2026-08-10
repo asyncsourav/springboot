@@ -83,6 +83,8 @@ package com.scaler;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Laptop {
 
@@ -91,8 +93,8 @@ public class Laptop {
     private String Brand;
     private String Model;
     private int ram;
-    @ManyToOne
-    private Alien alien;
+    @ManyToMany(mappedBy = "laptops")
+    private List<Alien> alien;
 
     public int getLid() {
         return lid;
@@ -126,14 +128,13 @@ public class Laptop {
         this.ram = ram;
     }
 
-    public Alien getAlien() {
+    public List<Alien> getAlien() {
         return alien;
     }
 
-    public void setAlien(Alien alien) {
+    public void setAlien(List<Alien> alien) {
         this.alien = alien;
     }
-
 
     @Override
     public String toString() {
@@ -142,6 +143,7 @@ public class Laptop {
                 ", Brand='" + Brand + '\'' +
                 ", Model='" + Model + '\'' +
                 ", ram=" + ram +
+                ", alien=" + alien +
                 '}';
     }
 }

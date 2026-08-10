@@ -133,7 +133,7 @@ public class Alien {
     private int aid;
     private String aname;
     private String tech;
-    @OneToMany(mappedBy = "alien")
+    @ManyToMany
     private List<Laptop> laptops;
 
     public int getAid() {
@@ -174,7 +174,7 @@ public class Alien {
                 "aid=" + aid +
                 ", aname='" + aname + '\'' +
                 ", tech='" + tech + '\'' +
-                ", laptop=" + laptops +
+                ", laptops=" + laptops +
                 '}';
     }
 }

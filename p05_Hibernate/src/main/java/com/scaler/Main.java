@@ -266,7 +266,13 @@ public class Main {
 
         Laptop l1 = new Laptop();
         Laptop l2 = new Laptop();
+        Laptop l3 = new Laptop();
+
         Alien a1 = new Alien();
+        Alien a2 = new Alien();
+        Alien a3 = new Alien();
+
+
 
         System.out.println("laptop input");
         System.out.print("id of laptop: ");
@@ -298,6 +304,21 @@ public class Main {
         l2.setRam(scanner.nextInt());
 
 
+        System.out.println("2nd laptop input");
+        System.out.print("id of laptop: ");
+        l3.setLid(scanner.nextInt());
+        scanner.nextLine();
+
+        System.out.print("Brand name: ");
+        l3.setBrand(scanner.nextLine());
+
+        System.out.print("Model name: ");
+        l3.setModel(scanner.nextLine());
+
+        System.out.print("Ram Value: ");
+        l3.setRam(scanner.nextInt());
+
+
         System.out.println("Alien input");
         System.out.print("id of Alien: ");
         a1.setAid(scanner.nextInt());
@@ -310,10 +331,38 @@ public class Main {
         a1.setTech(scanner.nextLine());
 
 
+        System.out.println("Alien input");
+        System.out.print("id of Alien: ");
+        a2.setAid(scanner.nextInt());
+        scanner.nextLine();
+
+        System.out.print("Alien name: ");
+        a2.setAname(scanner.nextLine());
+
+        System.out.print("Alien skills: ");
+        a2.setTech(scanner.nextLine());
+
+
+        System.out.println("Alien input");
+        System.out.print("id of Alien: ");
+        a3.setAid(scanner.nextInt());
+        scanner.nextLine();
+
+        System.out.print("Alien name: ");
+        a3.setAname(scanner.nextLine());
+
+        System.out.print("Alien skills: ");
+        a3.setTech(scanner.nextLine());
+
+
 
         a1.setLaptops(Arrays.asList(l1, l2));
-        l1.setAlien(a1);
-        l2.setAlien(a1);
+        a2.setLaptops(Arrays.asList(l2, l3));
+        a3.setLaptops(Arrays.asList(l1));
+
+        l1.setAlien(Arrays.asList(a1, a3));
+        l2.setAlien(Arrays.asList(a1, a2));
+        l3.setAlien(Arrays.asList(a2));
 
 
 
@@ -326,17 +375,17 @@ public class Main {
         Session session = sf.openSession();
 
 
+
         // making transaction to db
         Transaction transaction = session.beginTransaction();
         session.persist(l1);
-        session.persist(a1);
         session.persist(l2);
+        session.persist(l3);
+
+        session.persist(a1);
+        session.persist(a2);
+        session.persist(a3);
         transaction.commit();
-
-
-        // let us also print the value from db if it is stored or not
-        Alien a2 = session.find(Alien.class, a1.getAid());
-        System.out.println(a2);
 
 
         session.close();
