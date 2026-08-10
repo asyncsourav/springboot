@@ -48,6 +48,7 @@ public class Main {
 // --------------------------------------------- DELETE DATA --------------------------------------- //
 
 
+/*
 package com.scaler;
 
 import jakarta.transaction.Synchronization;
@@ -81,5 +82,47 @@ public class Main {
         sf.close();
 
         System.out.println(s1);
+    }
+}
+
+*/
+
+
+// ------------------------------------ CHANGING TABLE AND COLUMN NAME ------------------------------------ //
+
+
+package com.scaler;
+
+import jakarta.transaction.Synchronization;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        Alien a1 = new Alien();
+
+        a1.setAid(101);
+        a1.setAname("Sourav Kumar");
+        a1.setTech("Java");
+
+        SessionFactory sf = new Configuration()
+                .addAnnotatedClass(com.scaler.Alien.class)
+                .configure()
+                .buildSessionFactory();
+
+        Session session = sf.openSession();
+
+        Transaction transaction = session.beginTransaction();
+        session.persist(a1);
+        transaction.commit();
+
+        session.close();
+        sf.close();
+
     }
 }
