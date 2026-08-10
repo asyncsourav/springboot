@@ -12,21 +12,28 @@ public class Main {
 
         Student s1 = new Student();
 
-        s1.setName("Shruti Mandal");
-        s1.setMarks(99);
-        s1.setSRoll(57);
+        s1.setName("Krishna Anantwar");
+        s1.setMarks(83);
+        s1.setSRoll(35);
 
-        Configuration cfg = new Configuration();
-        cfg.addAnnotatedClass(com.scaler.Student.class);
-        cfg.configure();
+        Student s2 = null;
 
-        SessionFactory sf = cfg.buildSessionFactory();
+        SessionFactory sf = new Configuration()
+                .addAnnotatedClass(com.scaler.Student.class)
+                .configure()
+                .buildSessionFactory();
+
         Session session = sf.openSession();
 
+        s2 = session.find(Student.class, 46);
+
         Transaction transaction = session.beginTransaction();
-        session.persist(s1);
+        // session.persist(s1);
         transaction.commit();
 
-        System.out.println(s1);
+        session.close();
+        sf.close();
+
+        System.out.println(s2);
     }
 }
