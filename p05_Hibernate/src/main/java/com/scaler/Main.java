@@ -13,10 +13,8 @@ public class Main {
         Student s1 = new Student();
 
         s1.setName("Krishna Anantwar");
-        s1.setMarks(83);
+        s1.setMarks(87);
         s1.setSRoll(35);
-
-        Student s2 = null;
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(com.scaler.Student.class)
@@ -25,15 +23,13 @@ public class Main {
 
         Session session = sf.openSession();
 
-        s2 = session.find(Student.class, 46);
-
         Transaction transaction = session.beginTransaction();
-        // session.persist(s1);
+        session.merge(s1);
         transaction.commit();
 
         session.close();
         sf.close();
 
-        System.out.println(s2);
+        System.out.println(s1);
     }
 }
