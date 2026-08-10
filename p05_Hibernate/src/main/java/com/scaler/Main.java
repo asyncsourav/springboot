@@ -1,4 +1,12 @@
+
+
+/*
+
+// ----------------------------------- UPDATE DATA ------------------------------------- //
+// This is complete code to update or create if no such row exist
+
 package com.scaler;
+
 
 import jakarta.transaction.Synchronization;
 import org.hibernate.Session;
@@ -25,6 +33,48 @@ public class Main {
 
         Transaction transaction = session.beginTransaction();
         session.merge(s1);
+        transaction.commit();
+
+        session.close();
+        sf.close();
+
+        System.out.println(s1);
+    }
+}
+*/
+
+
+
+// --------------------------------------------- DELETE DATA --------------------------------------- //
+
+
+package com.scaler;
+
+import jakarta.transaction.Synchronization;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        Student s1 = null;
+
+        SessionFactory sf = new Configuration()
+                .addAnnotatedClass(com.scaler.Student.class)
+                .configure()
+                .buildSessionFactory();
+
+        Session session = sf.openSession();
+
+        // here we are first trying to find out the Student row from db by help of find() method and then delete it
+        s1 = session.find(Student.class, 35);
+
+        Transaction transaction = session.beginTransaction();
+        session.remove(s1);
         transaction.commit();
 
         session.close();
