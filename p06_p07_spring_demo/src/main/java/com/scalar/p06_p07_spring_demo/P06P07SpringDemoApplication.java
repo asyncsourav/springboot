@@ -14,8 +14,5 @@ public class P06P07SpringDemoApplication {
 		Alien abj = context.getBean(Alien.class);
 		abj.Code();
 
-		Alien obj1 = context.getBean(Alien.class);
-		obj1.Code();
 	}
-
 }
