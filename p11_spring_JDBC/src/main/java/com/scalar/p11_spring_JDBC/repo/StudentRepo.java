@@ -40,19 +40,15 @@ public class StudentRepo {
 
         String sql = "select * from student";
 
-        RowMapper<Student> mapper = new RowMapper<Student>() {
-            @Override
-            public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Student student = new Student();
 
-                student.setRollNo(rs.getInt("rollno"));
-                student.setName(rs.getString("name"));
-                student.setMarks(rs.getInt("marks"));
+        return jdbc.query(sql, (rs, row) -> {
+            Student student = new Student();
 
-                return student;
-            }
-        };
+            student.setRollNo(rs.getInt("rollno"));
+            student.setName(rs.getString("name"));
+            student.setMarks(rs.getInt("marks"));
 
-        return jdbc.query(sql, mapper);
+            return student;
+        });
     }
 }
