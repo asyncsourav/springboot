@@ -10,9 +10,13 @@ public class App {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
-        // ! with singleton -> we will always only one object for a class and everytime that one will be called 
-        // ! with prototype -> we will always create a new object of the Class 
-        // * You could see these in "../../../resources/spring.xml"
+        // ! You could see these in "../../../resources/spring.xml"
+        // * with singleton -> we will always only one object for a class and everytime that one will be called 
+        // * with prototype -> we will always create a new object of the Class 
+
+        // ! Also an importmat point here -> 
+        // 1. for singleton - that object will created in the container when it is loaded by the ApplicationContext(at the start of execution of any code)
+        // 2. But for Prototype - that object will only be created only when it is actually called by the getBeans() -> only when it is required and we call it, then it will be created inside the container
 
 
         Alien obj1 = (Alien) context.getBean("alien1");
