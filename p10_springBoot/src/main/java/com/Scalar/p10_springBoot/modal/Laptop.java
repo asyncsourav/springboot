@@ -1,4 +1,4 @@
-package com.Scalar.p10_springBoot;
+package com.Scalar.p10_springBoot.modal;
 
 
 import org.springframework.context.annotation.Primary;
