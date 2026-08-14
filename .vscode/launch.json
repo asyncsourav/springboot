@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "P10SpringBootApplication",
+      "request": "launch",
+      "mainClass": "com.Scalar.p10_springBoot.P10SpringBootApplication",
+      "projectName": "p10_springBoot"
+    },
+    {
+      "type": "java",
       "name": "App",
       "request": "launch",
       "mainClass": "com.scalar.App",
