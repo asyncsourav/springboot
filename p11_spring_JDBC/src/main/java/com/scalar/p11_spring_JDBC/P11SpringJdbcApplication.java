@@ -18,9 +18,9 @@ public class P11SpringJdbcApplication {
 
 
 		Student s1 = context.getBean(Student.class);
-		s1.setRollNo(101);
-		s1.setMarks(97);
-		s1.setName("Sourav Kumar");
+		s1.setRollNo(104);
+		s1.setMarks(89);
+		s1.setName("Sonam Kumari");
 
 
 		StudentService service = context.getBean(StudentService.class);
@@ -28,6 +28,8 @@ public class P11SpringJdbcApplication {
 
 
 		List<Student> students = service.getStudents();
-		System.out.println(students);
+		for (int i = 0; i < students.size(); i++) {
+			System.out.println(students.get(i));
+		}
 	}
 }

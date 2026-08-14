@@ -2,10 +2,14 @@ package com.scalar.p11_spring_JDBC.repo;
 
 
 import com.scalar.p11_spring_JDBC.model.Student;
+import com.scalar.p11_spring_JDBC.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +37,22 @@ public class StudentRepo {
     }
 
     public List<Student> findAll() {
-        List<Student> arr = new ArrayList<>();
-        return arr;
+
+        String sql = "select * from student";
+
+        RowMapper<Student> mapper = new RowMapper<Student>() {
+            @Override
+            public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Student student = new Student();
+
+                student.setRollNo(rs.getInt("rollno"));
+                student.setName(rs.getString("name"));
+                student.setMarks(rs.getInt("marks"));
+
+                return student;
+            }
+        };
+
+        return jdbc.query(sql, mapper);
     }
 }
