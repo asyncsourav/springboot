@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "P11SpringJdbcApplication",
+      "request": "launch",
+      "mainClass": "com.scalar.p11_spring_JDBC.P11SpringJdbcApplication",
+      "projectName": "p11_spring_JDBC"
+    },
+    {
+      "type": "java",
       "name": "P10SpringBootApplication",
       "request": "launch",
       "mainClass": "com.Scalar.p10_springBoot.P10SpringBootApplication",
