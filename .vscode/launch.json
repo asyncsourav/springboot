@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "com.scalar.App",
+      "projectName": "p07_spring_demo"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-P06P07SpringDemoApplication<p06_p07_spring_demo>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.scalar.p06_p07_spring_demo.P06P07SpringDemoApplication",
+      "projectName": "p06_p07_spring_demo",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

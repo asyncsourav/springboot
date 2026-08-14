@@ -1,6 +1,5 @@
 package com.scalar;
 
-import org.springframework.stereotype.Component;
 
 
 public class Alien {
