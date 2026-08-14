@@ -8,13 +8,12 @@
 
 
 
-    <bean id="alien1" class="com.scalar.Alien">
+    <!-- * with prototype -> we will always create a new object of the Class  -->
+    <bean id="alien1" class="com.scalar.Alien" scope="prototype" >
     </bean>
 
-<!--    <bean id="alien2" class="com.scalar.Alien">-->
-<!--    </bean>-->
-
-    <bean id="lap" class="com.scalar.Laptop">
+    <!-- * with singleton -> we will always only one object for a class and everytime that one will be called  -->
+    <bean id="lap" class="com.scalar.Laptop" scope="singleton" >
     </bean>
 
 
