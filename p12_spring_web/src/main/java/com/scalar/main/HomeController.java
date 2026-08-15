@@ -1,6 +1,8 @@
 package com.scalar.main;
 
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,6 +14,18 @@ public class HomeController {
     public String Home() {
         System.out.println("Home method called");
         return "index.jsp";
+    }
+
+    @RequestMapping("add")
+    public String Add (HttpServletRequest req, HttpSession session) {
+
+        int num1 = Integer.parseInt(req.getParameter("num1"));
+        int num2 = Integer.parseInt(req.getParameter("num2"));
+        int result = num1 + num2;
+
+        session.setAttribute("result", result);
+
+        return "result.jsp";
     }
 
 }
