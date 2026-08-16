@@ -13,8 +13,7 @@ import java.util.List;
 @Controller
 public class JobController {
 
-    @Autowired
-    private JobService service;
+    private final JobService service = new JobService();
 
 
     @GetMapping({"/", "home"})

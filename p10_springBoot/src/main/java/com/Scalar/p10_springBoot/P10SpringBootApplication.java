@@ -2,7 +2,6 @@ package com.Scalar.p10_springBoot;
 
 
 
-import com.Scalar.p10_springBoot.modal.Alien;
 import com.Scalar.p10_springBoot.modal.Laptop;
 import com.Scalar.p10_springBoot.service.LaptopService;
 import org.springframework.boot.SpringApplication;

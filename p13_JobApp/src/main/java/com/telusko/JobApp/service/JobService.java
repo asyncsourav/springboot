@@ -10,8 +10,7 @@ import java.util.List;
 
 @Service
 public class JobService {
-    @Autowired
-    public JobRepo repo;
+    public final JobRepo repo = new JobRepo();
 
 
     // method to add a jobPost
